@@ -24,3 +24,19 @@ users = [
     { 'id': '8', 'name': 'Simon Peterson', 'age': 32, 'hasDog': False, 'hasCat': True },
     { 'id': '9', 'name': 'Daniel Cane', 'age': 15, 'hasDog': False, 'hasCat': False },
 ]
+
+# 1 funkcija
+
+def filter_all_or_nothing_people(people):
+    """Grąžina vartotojus, kurie arba neturi naminių gyvūnų visiškai, arba turi ir šunį, ir katę."""
+    return [person for person in people if (not person['hasDog'] and not person['hasCat']) or (person['hasDog'] and person['hasCat'])]
+
+print(filter_all_or_nothing_people(users))
+
+# 2 funkcija
+
+def filter_underaged_owners(owners):
+    """Grąžina vartotojus, kurie dar nėra pilnamečiai, bet jau turi bent vieną naminį gyvūną."""
+    return [owner for owner in owners if owner['age'] <= 18 and (owner['hasDog'] or owner['hasCat'])]
+
+print(filter_underaged_owners(users))
